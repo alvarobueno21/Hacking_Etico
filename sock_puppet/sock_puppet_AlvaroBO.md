@@ -1,7 +1,24 @@
 # SOCK PUPPET
 
-# INDICE
+# Indice
+1. Introducción
+   - ¿Qué es un Sock Puppet?
+   - Usos habituales
 
+2. Proceso de creación del Sock Puppet
+   - Preparación de la máquina virtual
+   - Instalación y configuración de VPN
+   - Desarrollo de identidad completa
+     - Datos Completos
+   - Creación de la foto de nuestra identidad falsa
+   - Creación de Correo electrónico (Proton Mail)
+   - Redes sociales
+     - Instagram
+     - Twitter
+
+3. Reflexiones sobre los desafíos encontrados
+   - Bloqueo de la cuenta de Twitter
+   - Número de teléfono
 ## Introducción
 
 En el siguiente proyecto nos haremos pasar por una persona inexistente y la crearemos a nuestro gusto, crearemos su perfil digital, con sus redes sociales y también le daremos una imagen creada por inteligencia artificial a nuestra identidad falsa. Normalmente estos perfiles se usan para hacer ciertas investigaciones a determinados objetivos pero desgraciadamente también pueden ser utilizados como método de estafa hacia personas, muchos hackers usan esta identidad falsa para poder conseguir dinero o manipular a la gente y así engañarles haciéndose pasar por una persona real. 
@@ -23,19 +40,18 @@ A veces podemos llegar a comprar incluso algún producto o enviar algún mensaje
 
 Lo primero que tenemos que hacer es configurar una nueva máquina virtual, ahí será donde hagamos nuestro perfil falso, es importante que no tenga enlaces externos a nuestra máquina anfitrión o se nos relacione de alguna forma, una vez tengamos la máquina instalada y limpia continuaremos al siguiente paso.
 
-![Untitled](SOCK%20PUPPET%20bb8138f9fe5f4cd8a0f6445c42484e4f/Untitled.png)
+![img/img01](https://github.com/alvarobueno21/Hacking_Etico/blob/3fb090f6c38f5591d92c47d33618224f265541e0/sock_puppet/img/img01.png)
 
 ## Instalación y configuración de VPN
 
 En nuestro caso vamos a instalar brave que es un navegador y dentro de él nos proporcionará una vpn cuando naveguemos por navegación privada, su VPN se llama Tor y es tan sencillo como abrir una ventana privada y darle click a conectar y ya tendremos lista nuestra VPN
 
-![Untitled](SOCK%20PUPPET%20bb8138f9fe5f4cd8a0f6445c42484e4f/Untitled%201.png)
-
+![img/img02](https://github.com/alvarobueno21/Hacking_Etico/blob/3fb090f6c38f5591d92c47d33618224f265541e0/sock_puppet/img/img02.png)
 ## Desarrollo de identidad completa
 
 Para hacer la identidad de nuestro perfil falso recurrimos a la web de [fakenamegerator.com](http://fakenamegerator.com) y ahí nos generó una identidad falsa con varios parámetros para identificar a nuestra persona falsa:
 
-![Untitled](SOCK%20PUPPET%20bb8138f9fe5f4cd8a0f6445c42484e4f/Untitled%202.png)
+![img/img03](https://github.com/alvarobueno21/Hacking_Etico/blob/3fb090f6c38f5591d92c47d33618224f265541e0/sock_puppet/img/img03.png)
 
 Luego me metí en otras páginas para buscar un generador de DNI falso, un IBAN, una tarjeta de banco falsa, matrícula de coche ... y esto fueron todos los datos que pude recopilar:
 
@@ -79,19 +95,19 @@ Luego me metí en otras páginas para buscar un generador de DNI falso, un IBAN,
 
 Nos meteremos en Canva y tenemos varias opciones para que una inteligencia artificial nos cree varias fotografías a partir de una breve descripción de lo que queremos crear, este fue el resultado y la imagen que nos quedamos para el perfil falso:
 
-![Untitled](SOCK%20PUPPET%20bb8138f9fe5f4cd8a0f6445c42484e4f/Untitled%203.png)
+![img/img04](https://github.com/alvarobueno21/Hacking_Etico/blob/3fb090f6c38f5591d92c47d33618224f265541e0/sock_puppet/img/img04.png)
 
 ## Creación de Correo electronico (Proton Mail):
 
-![Untitled](SOCK%20PUPPET%20bb8138f9fe5f4cd8a0f6445c42484e4f/Untitled%204.png)
+![img/img05](https://github.com/alvarobueno21/Hacking_Etico/blob/3fb090f6c38f5591d92c47d33618224f265541e0/sock_puppet/img/img05.png)
 
 Para verificarnos podemos usar un correo temporal ya que nos pide otro correo para verificarnos en proton, así que usamos guerrillamail.com que es una web para correos temporales que nos permite tener una bandeja de entrada y poder ver los códigos o correos que nos manden y así verificarnos.
 
-![Untitled](SOCK%20PUPPET%20bb8138f9fe5f4cd8a0f6445c42484e4f/Untitled%205.png)
+![img/img06](https://github.com/alvarobueno21/Hacking_Etico/blob/3fb090f6c38f5591d92c47d33618224f265541e0/sock_puppet/img/img06.png)
 
 Ahora introducimos ese código de verificación en proton y ya tenemos cuenta operativa para poder verificarnos en las redes sociales.
 
-![Untitled](SOCK%20PUPPET%20bb8138f9fe5f4cd8a0f6445c42484e4f/Untitled%206.png)
+![img/img07](https://github.com/alvarobueno21/Hacking_Etico/blob/3fb090f6c38f5591d92c47d33618224f265541e0/sock_puppet/img/img07.png)
 
 ## Redes sociales
 
@@ -99,17 +115,17 @@ Ahora introducimos ese código de verificación en proton y ya tenemos cuenta op
 
 A continuación, nos creamos la cuenta de Instagram y nos verificamos con el correo de proton y accedemos sin problemas, subimos algunas fotos y escribimos algo en el perfil.
 
-![Untitled](SOCK%20PUPPET%20bb8138f9fe5f4cd8a0f6445c42484e4f/Untitled%207.png)
+![img/img08](https://github.com/alvarobueno21/Hacking_Etico/blob/3fb090f6c38f5591d92c47d33618224f265541e0/sock_puppet/img/img08.png)
 
 También empezaremos a seguir a varios perfiles e intentaremos que nos sigan de vuelta, en este caso nos han comentado la foto y nos han comenzado a seguir también.
 
-![Untitled](SOCK%20PUPPET%20bb8138f9fe5f4cd8a0f6445c42484e4f/Untitled%208.png)
+![img/img09](https://github.com/alvarobueno21/Hacking_Etico/blob/3fb090f6c38f5591d92c47d33618224f265541e0/sock_puppet/img/img09.png)
 
 ### Twitter
 
 Nos crearemos una cuenta de Twitter con el correo de proton para poder acceder, una vez estemos dentro pondremos algunos tweets y seguiremos a varias personas para darle credibilidad al perfil.
 
-![Untitled](SOCK%20PUPPET%20bb8138f9fe5f4cd8a0f6445c42484e4f/Untitled%209.png)
+![img/img10](https://github.com/alvarobueno21/Hacking_Etico/blob/3fb090f6c38f5591d92c47d33618224f265541e0/sock_puppet/img/img10.png)
 
 ## Reflexiones sobre los desafíos encontrados
 
@@ -117,16 +133,16 @@ Nos crearemos una cuenta de Twitter con el correo de proton para poder acceder, 
 
 Al paso de unos minutos nos bloquearon la cuenta porque encontraron algo sospechoso, asÍ que la solución fue autentificar de nuevo la cuenta para que me detectarán como humano y que no fuera un robot o algún bot que cree cuentas automáticamente.
 
-![Untitled](SOCK%20PUPPET%20bb8138f9fe5f4cd8a0f6445c42484e4f/Untitled%2010.png)
+![img/img11](https://github.com/alvarobueno21/Hacking_Etico/blob/3fb090f6c38f5591d92c47d33618224f265541e0/sock_puppet/img/img11.png)
 
 Y conseguimos desbloquear la cuenta:
 
-![Untitled](SOCK%20PUPPET%20bb8138f9fe5f4cd8a0f6445c42484e4f/Untitled%2011.png)
+![img/img12](https://github.com/alvarobueno21/Hacking_Etico/blob/3fb090f6c38f5591d92c47d33618224f265541e0/sock_puppet/img/img12.png)
 
 ### Número de teléfono
 
 No pudimos encontrar ningún teléfono desechable en ninguna página web para poder verificarnos en algunas redes sociales o sitios web, ya que muchos de ellos eran de pagos o simplemente no llegaban los SMS ni esperando más de 20 minutos.
 
-![Untitled](SOCK%20PUPPET%20bb8138f9fe5f4cd8a0f6445c42484e4f/Untitled%2012.png)
+![img/img13](https://github.com/alvarobueno21/Hacking_Etico/blob/3fb090f6c38f5591d92c47d33618224f265541e0/sock_puppet/img/img13.png)
 
 La solución sería comprar algun número de telefono barato o SIM desechable a alguna compañía telefónica.
