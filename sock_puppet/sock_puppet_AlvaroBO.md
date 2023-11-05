@@ -3,13 +3,13 @@
 # Indice
 1. [Introducción](#introducción)
    - [¿Qué es un Sock Puppet?](#qué-es-un-sock-puppet)
-   - Usos habituales
+   - [Usos habituales](#usos-habituales)
 
 2. [Proceso de creación del Sock Puppet](#proceso-de-creación-del-sock-puppet)
    - [Preparación de la máquina virtual](#preparación-de-la-máquina-virtual)
    - [Instalación y configuración de VPN](#instalación-y-configuración-de-vpn)
    - [Desarrollo de identidad completa](#desarrollo-de-identidad-completa)
-     - Datos Completos
+     - [Datos Completos](#datos-completos)
    - [Creación de la foto de nuestra identidad falsa](#creación-de-la-foto-de-nuestra-identidad-falsa)
    - [Creación de Correo electrónico (Proton Mail)](#creación-de-correo-electrónico-proton-mail)
    - [Redes sociales](#redes-sociales)
@@ -89,7 +89,7 @@ Luego me metí en otras páginas para buscar un generador de DNI falso, un IBAN,
 
 **Intereses:** Sus hobbies son la fotografía y escuchar música clásica, en su tiempo libre le gusta pasear por la montaña y coger la bici.
 
-**Estudios académicos:** Bachillerato de Ciencias y ****Carrera de Ingeniería Informática 
+**Estudios académicos:** Bachillerato de Ciencias y Carrera de Ingeniería Informática 
 
 ## Creación de la foto de nuestra identidad falsa
 
