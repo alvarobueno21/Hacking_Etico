@@ -1,25 +1,25 @@
 # SOCK PUPPET
 
 # Indice
-1. Introducción
-   - ¿Qué es un Sock Puppet?
+1. [Introducción](#introducción)
+   - [¿Qué es un Sock Puppet?](#qué-es-un-sock-puppet)
    - Usos habituales
 
-2. Proceso de creación del Sock Puppet
-   - Preparación de la máquina virtual
-   - Instalación y configuración de VPN
-   - Desarrollo de identidad completa
+2. [Proceso de creación del Sock Puppet](#proceso-de-creación-del-sock-puppet)
+   - [Preparación de la máquina virtual](#preparación-de-la-máquina-virtual)
+   - [Instalación y configuración de VPN](#instalación-y-configuración-de-vpn)
+   - [Desarrollo de identidad completa](#desarrollo-de-identidad-completa)
      - Datos Completos
-   - Creación de la foto de nuestra identidad falsa
-   - Creación de Correo electrónico (Proton Mail)
-   - Redes sociales
-     - Instagram
-     - Twitter
+   - [Creación de la foto de nuestra identidad falsa](#creación-de-la-foto-de-nuestra-identidad-falsa)
+   - [Creación de Correo electrónico (Proton Mail)](#creación-de-correo-electrónico-proton-mail)
+   - [Redes sociales](#redes-sociales)
+     - [Instagram](#instagram)
+     - [Twitter](#twitter)
 
-3. Reflexiones sobre los desafíos encontrados
-   - Bloqueo de la cuenta de Twitter
-   - Número de teléfono
-## Introducción
+3. [Reflexiones sobre los desafíos encontrados](#reflexiones-sobre-los-desafíos-encontrados)
+   - [Bloqueo de la cuenta de Twitter](#bloqueo-de-la-cuenta-de-twitter)
+   - [Número de teléfono](#número-de-teléfono)
+# Introducción
 
 En el siguiente proyecto nos haremos pasar por una persona inexistente y la crearemos a nuestro gusto, crearemos su perfil digital, con sus redes sociales y también le daremos una imagen creada por inteligencia artificial a nuestra identidad falsa. Normalmente estos perfiles se usan para hacer ciertas investigaciones a determinados objetivos pero desgraciadamente también pueden ser utilizados como método de estafa hacia personas, muchos hackers usan esta identidad falsa para poder conseguir dinero o manipular a la gente y así engañarles haciéndose pasar por una persona real. 
 
