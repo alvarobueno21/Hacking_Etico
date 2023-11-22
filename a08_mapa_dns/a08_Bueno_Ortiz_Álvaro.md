@@ -31,7 +31,7 @@ Los registros TXT del dominio son:
    elpozo.com TXT hFhrcB0MnxT3OQTuOcQvr74wfZOzuJJ8lsgsbSbfIN0+dBlQNGDmlWlZo2LTkrROTEF79hBCjd3pZLsOjLhYvg==
    elpozo.com TXT google-site-verification=f20wufKzQEXEw1uSfE_B6DBfOkoh0OxgnjgBoMekn0U
 
-## Servidores de Correo. Determina los servidores de correo electrónico asociados con "El POZO".
+## Servidores de Correo
 
 Con la máquina virtual de kali, podemos ver con la herramienta dig los registros MX que tiene el pozo, en este caso solo encontramos uno, que es el siguiente:
 
@@ -43,13 +43,13 @@ Con la máquina virtual de kali también podemos ejecutar el programa Spiderfoot
 
 ![img/elpozo5.png](https://github.com/alvarobueno21/Hacking_Etico/blob/464e4ef38f5625f68b3fbb64392afc3b95ea65cf/a08_mapa_dns/img/elpozo5.png)
 
-## Subdominios. Encuentra los subdominios relacionados con el dominio principal de la empresa.
+## Subdominios
 
 Con la ayuda de la herramienta de dnsdumpster podemos sacar información de todos los subdominios del pozo, las tecnologías que usan (nginx,apache...), las versiones por ejemplo de ssh que usan, etc.
 
 ![img/elpozo4.png](https://github.com/alvarobueno21/Hacking_Etico/blob/464e4ef38f5625f68b3fbb64392afc3b95ea65cf/a08_mapa_dns/img/elpozo4.png)
 
-# Información Adicional:
+# Información Adicional
 
 Con la herramienta criminalip que está disponible si la buscamos en internet podemos buscar bastantes datos interesantes y hacer un escaneo completo al pozo. Podemos sacar información importante como es el JARM hash, la fecha en la que se creo el dominio, y que compañia registró dicho dominio.
 
@@ -65,10 +65,8 @@ Para buscar las redes sociales de el pozo, nos dirigimos a su página oficial y 
 - [Facebook](https://www.facebook.com/ElPozoAlimentacion/) 
 - [Instagram](https://www.instagram.com/elpozoalimentacion/)
 - [LinkedIn](https://www.linkedin.com/company/elpozo-alimentacion-s.a./?originalSubdomain=es)
-- [Youtube]()
-- [Twitter]()
-
-
+- [Youtube](https://www.youtube.com/user/spotespeciales)
+- [Twitter](https://twitter.com/ElPozoAlimenta)
 
 
 ## Información de los empleados
