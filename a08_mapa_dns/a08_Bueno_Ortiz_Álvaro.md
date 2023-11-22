@@ -4,7 +4,7 @@
 2. [Información Whois](#información-whois)
    - [nslookup](#requisitos-del-sistema)
    - [AS (Sistema Autónomo)](#as-sistema-autónomo)
-   - [ISP (Proveedor de Servicios de Internet)](#isp-(proveedor-de-servicios-de-internet))
+   - [ISP (Proveedor de Servicios de Internet)](#isp-proveedor-de-servicios-de-internet)
    - [Mapa DNS](#mapa-dns)
 3. [Servidores DNS](#servidores-dns)
 4. [Servidores de correo](#servidores-de-correo)
@@ -24,18 +24,18 @@ Esta información es esencial para la auditoría debido a que nos permite evalua
 # Información Whois
 
 ## nslookup
-Tendremos que hacer un nslookup para encontrar la ip de el pozo, simplemente ejecutamos en nuestra terminal de windows nslookup elpozo.com
+Tendremos que hacer un nslookup para encontrar la IP de el pozo, simplemente ejecutamos en nuestra terminal de Windows nslookup elpozo.com y nos dará la IP del pozo como podemos ver en la siguiente imagen:
 
 ![img/elpozo9.png](https://github.com/alvarobueno21/Hacking_Etico/blob/c533371b163135c086ee706b8feaa8bba0da3931/a08_mapa_dns/img/elpozo9.png)
 
 ## AS (Sistema Autónomo)
-Con la herramienta bgp.he.net metemos la dirección IP de el pozo (anteriormente la sacamos con el nslookup) y podemos encontrar el AS de elpozo.com, que es el siguiente:
+Con la herramienta bgp.he.net metemos la dirección IP de el pozo y podemos encontrar el AS de elpozo.com, que es el siguiente:
 
 ![img/elpozo8.png](https://github.com/alvarobueno21/Hacking_Etico/blob/c533371b163135c086ee706b8feaa8bba0da3931/a08_mapa_dns/img/elpozo8.png)
 
 ## ISP (Proveedor de Servicios de Internet)
 
-Con la herramienta hemos encontrado ipinfo.io he encontrado varios datos sobre el proveedor de Servicios de Internet que es telefónica, para ejecutar esta herramienta previamente tuve que hacer un nslookup a elpozo y encontrar su dirección IP. Una vez encontrada su dirección IP que es la 195.57.134.66, ejecutamos la búsqueda en ipinfo.io y nos dará los siguientes datos:
+Con la herramienta hemos encontrado ipinfo.io he encontrado varios datos sobre el proveedor de Servicios de Internet que es telefónica, para ejecutar esta herramienta previamente tuve que hacer un nslookup a el pozo y encontrar su dirección IP. Una vez encontrada su dirección IP que es la 195.57.134.66, ejecutamos la búsqueda en ipinfo.io y nos dará los siguientes datos:
 
 ![img/elpozo6.png](https://github.com/alvarobueno21/Hacking_Etico/blob/c15e7abaaf3390f333b3a196b7e540540dc9215c/a08_mapa_dns/img/elpozo6.png)
 
@@ -46,7 +46,7 @@ Para sacar el mapa de DNS nos iremos a la herramienta dnsdumpster y exportaremos
 ![img/elpozo11.png](https://github.com/alvarobueno21/Hacking_Etico/blob/c82df8b8f7d3981e9b624f4cafb5c9ec4c93080a/a08_mapa_dns/img/elpozo11.png)
 
 # Servidores DNS
-Con el programa dnsdumpster podemos ver los siguientes servidores DNS:
+Con el programa dnsdumpster podemos ver los siguientes servidores DNS, sus direcciones IP y los proveedores de internet en este caso es telefónica:
 ![img/elpozo7.png](https://github.com/alvarobueno21/Hacking_Etico/blob/c533371b163135c086ee706b8feaa8bba0da3931/a08_mapa_dns/img/elpozo7.png)
 
 También encontraremos con la herramienta dnsdumpster los registros TXT (Text Records) en DNS que son un tipo de registro que permite a los administradores de dominios insertar texto arbitrario en el DNS de un dominio, y tiene varios fines como verificación de propiedad de un dominio hasta configuraciones específicas de seguridad y políticas de correo electrónico. 
@@ -73,7 +73,7 @@ Con la ayuda de la herramienta de dnsdumpster podemos sacar información de todo
 
 # Información Adicional
 
-Con la herramienta criminalip que está disponible si la buscamos en internet podemos buscar bastantes datos interesantes y hacer un escaneo completo al pozo. Podemos sacar información importante como es el JARM hash, la fecha en la que se creo el dominio, y que compañia registró dicho dominio.
+Con la herramienta criminalip que está disponible si la buscamos en internet podemos buscar bastantes datos interesantes y hacer un escaneo completo al pozo. Podemos sacar información importante como es el JARM hash, la fecha en la que se creó el dominio, y que compañía registró dicho dominio.
 
 ![img/elpozo2.png](https://github.com/alvarobueno21/Hacking_Etico/blob/48b8250a3506adf25f60ddd2177e91799420aed9/a08_mapa_dns/img/elpozo2.png)
 
@@ -99,3 +99,8 @@ Con la máquina virtual de kali también podemos ejecutar el programa Spiderfoot
 
 ![img/elpozo5.png](https://github.com/alvarobueno21/Hacking_Etico/blob/464e4ef38f5625f68b3fbb64392afc3b95ea65cf/a08_mapa_dns/img/elpozo5.png)
 
+A partir de los correos de algunos de los empleados podemos sacar sus nombres completos y sus LinkedIn:
+
+   - Ana Marin Conesa: [LinkedIn](https://www.linkedin.com/in/ana-marin-conesa-151a1916/?originalSubdomain=es)
+   - Blas Serrano: [LinkedIn](https://www.linkedin.com/in/blas-serrano-12314062/)
+   - Antonio Avellaneda: [LinkedIn](https://www.linkedin.com/in/antonio-avellaneda-73a21946/?originalSubdomain=es)
