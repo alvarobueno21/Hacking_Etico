@@ -2,7 +2,7 @@
 1. [Introducción](#introducción)
    - [Justificación](#justificación)
 2. [Información Whois](#información-whois)
-   - [nslookup](#requisitos-del-sistema)
+   - [nslookup](#nslookup)
    - [AS (Sistema Autónomo)](#as-sistema-autónomo)
    - [ISP (Proveedor de Servicios de Internet)](#isp-proveedor-de-servicios-de-internet)
    - [Mapa DNS](#mapa-dns)
