@@ -1,47 +1,45 @@
-
-Descripción de la Actividad
-En una primera etapa de auditoría, se os pide recopilar toda la información sobre la infraestructura de la empresa “El POZO” disponible en fuentes abierta. Utiliza herramientas y técnicas de OSINT (Open Source Intelligence) para recabar datos esenciales que serán cruciales en las etapas posteriores de la auditoría.
-
-Tareas a Realizar
-Información Whois. Recopila datos Whois de la empresa, incluyendo direcciones IP, 
------ AS (Sistema Autónomo) ----- 
----- ISP (Proveedor de Servicios de Internet) ------
-datos de contacto y correos electrónicos de administración.
+# Indice
 
 # Introducción
+HACERRRRRRRRR
+
+## nslookup
+Tendremos que hacer un nslookup para encontrar la ip de el pozo, simplemente ejecutamos en nuestra terminal de windows nslookup elpozo.com
+
+![img/elpozo9.png](https://github.com/alvarobueno21/Hacking_Etico/blob/c533371b163135c086ee706b8feaa8bba0da3931/a08_mapa_dns/img/elpozo9.png)
+
+## AS (Sistema Autónomo)
+Con la herramienta bgp.he.net metemos la dirección IP de el pozo (anteriormente la sacamos con el nslookup) y podemos encontrar el AS de elpozo.com, que es el siguiente:
+
+![img/elpozo8.png](https://github.com/alvarobueno21/Hacking_Etico/blob/c533371b163135c086ee706b8feaa8bba0da3931/a08_mapa_dns/img/elpozo8.png)
+
+## ISP (Proveedor de Servicios de Internet)
+
+Con la herramienta hemos encontrado ipinfo.io he encontrado varios datos sobre el proveedor de Servicios de Internet que es telefónica, para ejecutar esta herramienta previamente tuve que hacer un nslookup a elpozo y encontrar su dirección IP. Una vez encontrada su dirección IP que es la 195.57.134.66, ejecutamos la búsqueda en ipinfo.io y nos dará los siguientes datos:
+
+![img/elpozo6.png](https://github.com/alvarobueno21/Hacking_Etico/blob/c15e7abaaf3390f333b3a196b7e540540dc9215c/a08_mapa_dns/img/elpozo6.png)
+
 
 ## Servidores DNS. Identifica los servidores DNS utilizados por "El POZO".
+Con el programa dnsdumpster podemos ver los siguientes servidores DNS:
 
-Para ver los servidores DNS de elpozo, utilizaremos la herramienta DNS lookup, que podremos usar dentro de una máquina de linux o también en Internet que hay herramientas que nos permiten hacer lo mismo:
+![img/elpozo7.png](https://github.com/alvarobueno21/Hacking_Etico/blob/c533371b163135c086ee706b8feaa8bba0da3931/a08_mapa_dns/img/elpozo7.png)
 
-Aquí podemos ver los dos principales con sus IPS:
- elpozo.com NS scen17.elpozo.com 195.57.134.76
-   elpozo.com NS scen15.elpozo.com 195.57.134.74
-   
-Se ha consultado el servidor dns raíz c.gtld-servers.net con IP 192.26.92.30
-Los registros NS del dominio son:
-   elpozo.com NS scen15.elpozo.com 195.57.134.74
-   elpozo.com NS scen17.elpozo.com 195.57.134.76
- 
-Los registros TXT del dominio son:
-   elpozo.com TXT MS=ms72096551
-   elpozo.com TXT facebook-domain-verification=rtdbbxoqjj8g8do97obfcvjzwz427d
-   elpozo.com TXT v=spf1 include:7185630.spf10.hubspotemail.net include:spf.ipzmarketing.com include:spf.protection.outlook.com   
-   include:mailbox.edicomnet.com include:servers.mcsv.net mx ip4:195.57.134.40/29 exists:%{i}.spf.hc1419-85.eu.iphmx.com ~all
-   elpozo.com TXT hFhrcB0MnxT3OQTuOcQvr74wfZOzuJJ8lsgsbSbfIN0+dBlQNGDmlWlZo2LTkrROTEF79hBCjd3pZLsOjLhYvg==
-   elpozo.com TXT google-site-verification=f20wufKzQEXEw1uSfE_B6DBfOkoh0OxgnjgBoMekn0U
+También encontraremos con la herramienta dnsdumpster los registros TXT (Text Records) en DNS que son un tipo de registro que permite a los administradores de dominios insertar texto arbitrario en el DNS de un dominio, y tiene varios fines como verificación de propiedad de un dominio hasta configuraciones específicas de seguridad y políticas de correo electrónico. 
+
+Estos son algunos de ellos:
+   - elpozo.com TXT MS=ms72096551
+   - elpozo.com TXT facebook-domain-verification=rtdbbxoqjj8g8do97obfcvjzwz427d
+   - elpozo.com TXT v=spf1 include:7185630.spf10.hubspotemail.net include:spf.ipzmarketing.com include:spf.protection.outlook.com   
+   - include:mailbox.edicomnet.com include:servers.mcsv.net mx ip4:195.57.134.40/29 exists:%{i}.spf.hc1419-85.eu.iphmx.com ~all
+   - elpozo.com TXT hFhrcB0MnxT3OQTuOcQvr74wfZOzuJJ8lsgsbSbfIN0+dBlQNGDmlWlZo2LTkrROTEF79hBCjd3pZLsOjLhYvg==
+   - elpozo.com TXT google-site-verification=f20wufKzQEXEw1uSfE_B6DBfOkoh0OxgnjgBoMekn0U
 
 ## Servidores de Correo
 
 Con la máquina virtual de kali, podemos ver con la herramienta dig los registros MX que tiene el pozo, en este caso solo encontramos uno, que es el siguiente:
 
 ![img/elpozo1.01.png](https://github.com/alvarobueno21/Hacking_Etico/blob/48b8250a3506adf25f60ddd2177e91799420aed9/a08_mapa_dns/img/elpozo1.01.png)
-
-## Datos de contacto y correos electrónicos de administración.
-
-Con la máquina virtual de kali también podemos ejecutar el programa Spiderfoot para poder hacer una búsqueda de OSINT de correos sobre la empresa del pozo, en la siguiente imagen podemos ver algunos de ellos:
-
-![img/elpozo5.png](https://github.com/alvarobueno21/Hacking_Etico/blob/464e4ef38f5625f68b3fbb64392afc3b95ea65cf/a08_mapa_dns/img/elpozo5.png)
 
 ## Subdominios
 
@@ -71,14 +69,15 @@ Para buscar las redes sociales de el pozo, nos dirigimos a su página oficial y 
 
 ## Información de los empleados
 
-La podemos sacar con spiderfoot
+### Datos de contacto y correos electrónicos de administración.
+
+Con la máquina virtual de kali también podemos ejecutar el programa Spiderfoot para poder hacer una búsqueda de OSINT de correos sobre la empresa del pozo, en la siguiente imagen podemos ver algunos de ellos:
+
+![img/elpozo5.png](https://github.com/alvarobueno21/Hacking_Etico/blob/464e4ef38f5625f68b3fbb64392afc3b95ea65cf/a08_mapa_dns/img/elpozo5.png)
 
 
 
-Recopila cualquier otra información que consideres relevante (ej. presencia en redes sociales, información de empleados, etc.).
+
+
 Justifica claramente por qué esta información es relevante para tu auditoría.:
-Redacta un informe detallado en el que documentes cada paso de tu proceso de recopilación de información. Este informe debe incluir:
-
-Los métodos y herramientas utilizadas.
-Los datos recopilados.
 Análisis y justificación de la relevancia de la información encontrada.
