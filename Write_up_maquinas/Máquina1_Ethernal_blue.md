@@ -35,3 +35,18 @@ Para poder ver la contraseña del usuario John, el cual no es el usuario por def
 
 ![Write_up_maquinas/img/img09.png](https://github.com/alvarobueno21/Hacking_Etico/blob/a47be525d90e3dc3f06a402ea01c014ef8b6e9f6/Write_up_maquinas/img/img09.png)
 
+Ahora miraremos en C:\ con la meterpreter y vemos un archivo que se llama flag1.txt si lo leemos, nos da la flag que necesitamos:
+
+![Write_up_maquinas/img/img10.png](https://github.com/alvarobueno21/Hacking_Etico/blob/2488d30130436f95e65002cd50d190b04cbddd21/Write_up_maquinas/img/img10.png)
+
+Con el comando search -f flag*.txt, podremos ver todos los archivos que contengan el nombre flag y algún numero o letra después de ello, así podremos ver todas las flags del sistema y visualizarlas:
+
+![Write_up_maquinas/img/img11.png](https://github.com/alvarobueno21/Hacking_Etico/blob/959964c3c5652d95fc6e09d2b27d6512fec77acc/Write_up_maquinas/img/img11.png)
+
+Para poder movernos por la meterpreter tenemos que tener en cuenta que son 2 contrabarras, y el comando será así para movernos hacia los directorios y documentos:
+cd C:\\Windows\\System32\\config
+
+Y ya sacariamos las 2 flags y terminamos la máquina.
+
+
+
