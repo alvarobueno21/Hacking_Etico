@@ -21,4 +21,17 @@ Acto seguido ejecutaremos el comando run para lanzar el exploit:
 
 ![Write_up_maquinas/img/img06.png](https://github.com/alvarobueno21/Hacking_Etico/blob/55fa2ef0c57044082c6d071d5ead3dc18e5941ff/Write_up_maquinas/img/img06.png)
 
-Ahora intentaremos escalar privilegios para ello tendremos que buscar el modulo de meterpreter, establecer las opciones y ejecutarlo.
+Una vez hecho esto ya tenemos la meterpreter, para ver el modulo de meterpreter, usaremos el siguiente comando: search shell_to_meterpreter
+
+![Write_up_maquinas/img/img07.png](https://github.com/alvarobueno21/Hacking_Etico/blob/10bc802ab7977c01d2c813e969bec5170178c5dc/Write_up_maquinas/img/img07.png)
+
+Si hacemos un getuid podremos ver que estamos en NT AUTHORITY\SYSTEM.
+
+Una vez dentro del meterpreter, hacemos un hashdump y veremos las contraseñas y los usuarios de la máquina:
+
+![Write_up_maquinas/img/img08.png](https://github.com/alvarobueno21/Hacking_Etico/blob/322fea276b6371d180cf15b690c879ca8b1b3b7a/Write_up_maquinas/img/img08.png)
+
+Para poder ver la contraseña del usuario John, el cual no es el usuario por defecto del equipo y ha sido creado por el propietario del equipo, usaremos el programa john, para poder descifrar el hash, que en este caso es de tipo NTLM Hash (NT LAN Manager Hash), así almacena Windows los hashes de las contraseñas, y aquí podremos ver su contraseña y al lado su hash, censurado por seguridad:
+
+![Write_up_maquinas/img/img09.png](https://github.com/alvarobueno21/Hacking_Etico/blob/a47be525d90e3dc3f06a402ea01c014ef8b6e9f6/Write_up_maquinas/img/img09.png)
+
