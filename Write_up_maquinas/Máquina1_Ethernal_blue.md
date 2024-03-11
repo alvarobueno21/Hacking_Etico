@@ -13,8 +13,12 @@ Podremos ver las vulnerabilidades que hay, en este caso sale que es la ms17-010.
 
 Y el siguiente paso será lanzar sudo msfconsole para poder abrir metasploit y poder ver si podemos explotar esa vulnerabilidad.
 
-Para buscarlo en msfconsole, tenemos que poner search ms17-010, y darle a usar para que nos use el exploit de windows de ethernalblue, una vez dentro del modulo pondremos las opciones de rhosts para establecer la ip del equipo al que queremos atacar y acto seguido ejecutaremos el comando run para lanzar el exploit.
+Para buscarlo en msfconsole, tenemos que poner search ms17-010, y darle a usar para que nos use el exploit de windows de ethernalblue, una vez dentro del modulo pondremos las opciones de rhosts para establecer la ip del equipo al que queremos atacar.
 
 ![Write_up_maquinas/img/img03.png](https://github.com/alvarobueno21/Hacking_Etico/blob/1c0510a273adb03677eaae8863f75474e48de8d0/Write_up_maquinas/img/img03.png)
+
+Acto seguido ejecutaremos el comando run para lanzar el exploit:
+
+![Write_up_maquinas/img/img03.png](https://github.com/alvarobueno21/Hacking_Etico/blob/1c0510a273adb03677eaae8863f75474e48de8d0/Write_up_maquinas/img/img06.png)
 
 Ahora intentaremos escalar privilegios para ello tendremos que buscar el modulo de meterpreter, establecer las opciones y ejecutarlo.
