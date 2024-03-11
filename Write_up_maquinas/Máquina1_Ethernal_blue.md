@@ -19,6 +19,6 @@ Para buscarlo en msfconsole, tenemos que poner search ms17-010, y darle a usar p
 
 Acto seguido ejecutaremos el comando run para lanzar el exploit:
 
-![Write_up_maquinas/img/img03.png](https://github.com/alvarobueno21/Hacking_Etico/blob/1c0510a273adb03677eaae8863f75474e48de8d0/Write_up_maquinas/img/img06.png)
+![Write_up_maquinas/img/img06.png](https://github.com/alvarobueno21/Hacking_Etico/blob/55fa2ef0c57044082c6d071d5ead3dc18e5941ff/Write_up_maquinas/img/img06.png)
 
 Ahora intentaremos escalar privilegios para ello tendremos que buscar el modulo de meterpreter, establecer las opciones y ejecutarlo.
