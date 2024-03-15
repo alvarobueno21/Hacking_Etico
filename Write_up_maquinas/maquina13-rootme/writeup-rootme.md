@@ -16,3 +16,7 @@ ip/uploads y ahí subir la reverseshell con la extension .phtml y así nos dejar
 
 Una vez tengamos configurada la reverse shell bien y nos vayamos a uploads podremos meter la reverse shell y poner el comando nc -lvnp 1234 para poder escuchar en el puerto de la reverse shell y entrar sin problemas:
 
+![Write_up_maquinas/maquina13-rootme/img/img04.png](https://github.com/alvarobueno21/Hacking_Etico/blob/a6cb7e7ca47e9dae44eb0b6b97273a8bbb305f6e/Write_up_maquinas/maquina13-rootme/img/img04.png)
+
+Y una vez dentro de la reverse shell lo que haremos será ejecutar el comando find / -iname "user.txt" para poder ver los archivos txt que tengan la flag y por fin la podemos sacar y es:
+THM{y0u_g0t_a_sh3ll}
