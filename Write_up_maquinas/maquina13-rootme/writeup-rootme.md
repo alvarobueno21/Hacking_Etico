@@ -6,4 +6,5 @@ Y aquí podremos sacar los puertos abiertos, sus servicios, la versión de apach
 
 Ahora usaremos el gobuster para poder encontrar algunas direcciones ocultas como puede ser /panel/
 
-![Write_up_maquinas/maquina13-rootme/img/img02.png](https://github.com/alvarobueno21/Hacking_Etico/blob/62b6aaa05106d555c351ee2e48f0b5b868bf7469/Write_up_maquinas/maquina13-rootme/img/img02.png)
+![Write_up_maquinas/maquina13-rootme/img/img02.png](https://github.com/alvarobueno21/Hacking_Etico/blob/75242125996c15af85eca5339f0948a3e7c6f6ef/Write_up_maquinas/maquina13-rootme/img/img02.png)
+
