@@ -20,3 +20,11 @@ Una vez tengamos configurada la reverse shell bien y nos vayamos a uploads podre
 
 Y una vez dentro de la reverse shell lo que haremos será ejecutar el comando find / -iname "user.txt" para poder ver los archivos txt que tengan la flag y por fin la podemos sacar y es:
 THM{y0u_g0t_a_sh3ll}
+
+A continuación meteremos el siguiente comando para ver los permisos que nos interesan:  find / -perm -u=s -type f 2>/dev/null y vemos que hay un archivo que no es del sistema que es /usr/bin/python
+
+![Write_up_maquinas/maquina13-rootme/img/img05.png](https://github.com/alvarobueno21/Hacking_Etico/blob/d27ce7fe6e4608d2984780e97614344bdc66fbc9/Write_up_maquinas/maquina13-rootme/img/img05.png)
+
+Para escalar privilegios tendremos que usar el siguiente comando: ./python -c 'import os; os.execl("/bin/sh", "sh", "-p")' y ya seremos root, y solo nos queda buscar la flag y sacarla:
+
+![Write_up_maquinas/maquina13-rootme/img/img06.png](https://github.com/alvarobueno21/Hacking_Etico/blob/da5af1a5aa6dff72e6c24969761a22827c879d60/Write_up_maquinas/maquina13-rootme/img/img06.png)
