@@ -21,8 +21,19 @@ Para escalar privilegios usaremos el comando que vemos aqui arriba donde nos sal
 
 Ahora le damos a use y configuramos la sessionde meterpreter que teniamos abierta anteriormente y le damos a run para poder escalar privilegios.
 
-Y ahoara ejecutamos getprivs y veremos que el privilegio que usaremos para escalar es SeTakeOwnershipPrivilege.
+Y ahora ejecutamos getprivs y veremos que el privilegio que usaremos para escalar es SeTakeOwnershipPrivilege.
 
 Si hacemos un ps y vemos los procesos, npos fijamos en uno que se llama spoolsv.exe que tiene el numero 1104 de identificador, si hacemos migrate 1104, migraremos sus privilegios, si hacemos getuid somos NT AUTHORITY\SYSTEM.
 
+![Write_up_maquinas/maquina2-ice/img/img03.png](https://github.com/alvarobueno21/Hacking_Etico/blob/40bfd5bc7b3f0c345fa0db0b3e1944101be1e3c4/Write_up_maquinas/maquina2-ice/img/img03.png)
+
+A continuación cargaremos kiwi con load kiwi y con creds_all podemos sacar todas las credenciales.
+
+Otra opción es hacer el comando hashdump que nos dará los hashes de las contraseñas de los usuarios de las máquinas es usar hashdump, si queremos ver en directo la maquina, podemos ejecutar el comando screenshare. 
+
+![Write_up_maquinas/maquina2-ice/img/img04.png](https://github.com/alvarobueno21/Hacking_Etico/blob/f2857c22cc570fb30bf06fbae17617e5c1fe3533/Write_up_maquinas/maquina2-ice/img/img04.png)
+
+Si queremos escuchar una grabacion del micro de la maquina lo haremos con record_mic y si queremos modificar archivos timestamp lo haremos con timestomp.
+
+Si queremos intentar mantener la persistencia lo podemos hacer con ataques de tickets dorados, el comando es golden_ticket_create.
 
