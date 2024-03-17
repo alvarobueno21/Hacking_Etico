@@ -37,3 +37,7 @@ Si queremos escuchar una grabacion del micro de la maquina lo haremos con record
 
 Si queremos intentar mantener la persistencia lo podemos hacer con ataques de tickets dorados, el comando es golden_ticket_create.
 
+
+Para activar el escritorio remoto usaremos en la meterpreter el siguiente modulo para activarlo: run post/windows/manage/enable_rdp y asi lo activaremos y nos podremos autenticar como el usuario y con su contraseña.
+
+Algunos exploit mas aqui: https://www.exploit-db.com/exploits/568 
