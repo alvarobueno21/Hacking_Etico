@@ -12,4 +12,7 @@ Si nos vamos a la pagina principal vemos que meliodas es un usuario que sube pos
 
 hydra -l meliodas -P /usr/share/wordlists/rockyou.txt ssh://10.10.122.230 -t4
 
-Si hacemos un 
+Y ya tenemos acceso, entramos y vemos un fichero que se llama user.txt y esa es la primera flag.
+
+Hemos encontrado un script pero no puede ser ejecutado por el usuario meliodas, para poder ejecutarlo hay que cambiar las librerias de python con el siguiente comando:
+
