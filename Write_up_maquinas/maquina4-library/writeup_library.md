@@ -14,5 +14,12 @@ hydra -l meliodas -P /usr/share/wordlists/rockyou.txt ssh://10.10.122.230 -t4
 
 Y ya tenemos acceso, entramos y vemos un fichero que se llama user.txt y esa es la primera flag.
 
-Hemos encontrado un script pero no puede ser ejecutado por el usuario meliodas, para poder ejecutarlo hay que cambiar las librerias de python con el siguiente comando:
+Hemos encontrado un script pero no puede ser ejecutado por el usuario meliodas, lo que haremos será crerar un bak.py donde dentro se encontrará lo siguiente: 
+
+![Write_up_maquinas/maquina4-library/img/img02.png](https://github.com/alvarobueno21/Hacking_Etico/blob/95971f4cdea4290272ab5c6b8c7b7c91ed87f9df/Write_up_maquinas/maquina4-library/img/img02.png)
+
+Y una vez hecho esto hacemos un chmod +x bak.py para tener permisos y ejecutar el script con el siguiente comando: sudo /usr/bin/python3 /home/meliodas/bak.py
+
+Hacemos ls y luego nos metemos en /root y vemos que hay un fichero que se llama root.txt y ya tenemos la segunda flag.
+
 
