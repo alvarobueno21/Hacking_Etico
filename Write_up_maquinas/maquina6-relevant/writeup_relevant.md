@@ -11,4 +11,16 @@ Y descubriremos algunos directorios
 
 IMG02
 
-Harem
+Haremos un smbclient a ver si podemos acceder sin contraseña y si podemos, lo haremos con el comando: sudo smbclient -L 10.10.237.72
+
+IMG03
+
+Ahora accederemos con el usuario nt4wrksv, a ver si podemos, lo haremos con el siguiente comando: smbclient \\\\10.10.237.72\\nt4wrksv
+
+IMG04
+
+Y si hacemos un ls vemos un fichero interesante, hacemos un get y luego un cat para ver su contenido, parece que esta encodeado en base64, nos vamos a ciberchef y sacamos las contraseñas.
+
+
+
+
