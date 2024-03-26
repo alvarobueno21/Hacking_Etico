@@ -1,16 +1,18 @@
 Lo primero que haremos será hacer un nmap y enumerar los puertos abiertos
-IMG01
 
+
+![Write_up_maquinas/maquina3-bluster/img/img01.png](https://github.com/alvarobueno21/Hacking_Etico/blob/ddb1d83cc03a05b359f343c74555f284a59ef527/Write_up_maquinas/maquina3-bluster/img/img01.png)
 
 
 Una vez hecho esto haremos fuzzing y encontramos una ruta /retro
-IMG02
 
 
+![Write_up_maquinas/maquina3-bluster/img/img02.png](https://github.com/alvarobueno21/Hacking_Etico/blob/ddb1d83cc03a05b359f343c74555f284a59ef527/Write_up_maquinas/maquina3-bluster/img/img02.png)
 
 
 Nos vamos a la pagina y encontramos que el nombre de Wade se refiere a un personaje de avatar que se llama parzival
-IMG03
+
+![Write_up_maquinas/maquina3-bluster/img/img03.png](https://github.com/alvarobueno21/Hacking_Etico/blob/ddb1d83cc03a05b359f343c74555f284a59ef527/Write_up_maquinas/maquina3-bluster/img/img03.png)
 
 Ahora nos conectaremos por rdp, si no lo tenemos instalado lo instalamos con el siguiente comando:
 
@@ -24,7 +26,7 @@ Y si miramos el documento de texto del escritorio tenemos esta flag: THM{HACK_PL
 
 Si nos fijamos bien en el escritorio, hay un ejecutable, le damos a abrir con administrador y hacemos click en Show details y luego nos saldra una pestaña para ver información sobre el certificado, hacemos click en ella y nos vamos a su pagina web.
 
-IMG04
+![Write_up_maquinas/maquina3-bluster/img/img04.png](https://github.com/alvarobueno21/Hacking_Etico/blob/ddb1d83cc03a05b359f343c74555f284a59ef527/Write_up_maquinas/maquina3-bluster/img/img04.png)
 
 Luego tendremos que irnos al navegador, configuración y guardar archivo y nos vamos a la ruta C:\Windows\System32 y luego en la parte de arriba pondremos C:\Windows\System32\cmd.exe, abrimos la cmd y ejecutamos whoaami y somos nt authority\system.
 
