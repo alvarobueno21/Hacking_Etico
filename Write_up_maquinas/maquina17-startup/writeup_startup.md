@@ -33,11 +33,9 @@ Si hacemos un cat user.txt vemos la segunda flag.
 
 Ahora haremos el siguiente comando para ver los binarios: find / -perm -u=s -type f 2>/dev/null
 
-![img05](img/img05.png)
-
 Y ahora hacemos un ls -lart y vemos que el script se puede ejecutar como root y que cada minuto se esta actulizando, por lo tanto lleva un crontab y una tarea programada.
 
-IMG05
+![img05](img/img05.png)
 
 Y buscamos bash reverse shell y lo metemos en el print.sh y ya ponemos el puerto en escucha y hacemos un ls y tenemos la flag.
 
