@@ -121,4 +121,3 @@ Y nos vamos a cd/root y hacemos un ls y un cat a root.txt
 
 Y el Agent R es: DesKel 
 
-![img28](img/img28.png)
