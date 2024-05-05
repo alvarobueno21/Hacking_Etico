@@ -105,5 +105,6 @@ Y ya se nos abrirá la Shell como root:
 ![img](img/img19.png)
  
 Y nos vamos a /root y cat root.txt
+
 ![img](img/img20.png)
  
