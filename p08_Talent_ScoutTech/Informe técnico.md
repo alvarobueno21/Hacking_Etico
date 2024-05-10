@@ -61,11 +61,20 @@ Esto os permite estudiar el código fuente de “add_comment.php” y encontrar 
 | Vulnerabilidad detectada                     |   `$body = $_POST['body']; $body = SQLite3::escapeString($body); $query = "INSERT INTO comments (playerId, userId, body) VALUES ('".$_GET['id']."', '".$_COOKIE['userId']."', '$body')"; `
                                                | 
 | Descripción del ataque                 |   El problema radica en la forma en que los datos son insertados directamente en la consulta SQL sin un manejo adecuado de los mismos para prevenir manipulaciones maliciosas                                             | 
-| ¿Cómo podemos hacer que sea segura esta entrada?        |  `if (isset($_POST['body']) && isset($_GET['id'])) {     # Just in from POST => save to database
-    $body = $_POST['body'];     $playerId = $_GET['id'];     $userId = $_COOKIE['userId'];   $stmt = $db->prepare('INSERT INTO comments (playerId, userId, body) VALUES (?, ?, ?)');     $stmt->bindValue(1, $playerId, SQLITE3_TEXT);     $stmt->bindValue(2, $userId, SQLITE3_TEXT);     $stmt->bindValue(3, $body, SQLITE3_TEXT);
-    $stmt->execute();     header("Location: list_players.php"); } `       | 
 
-
+¿Cómo podemos hacer que sea segura esta entrada?        
+` if (isset($_POST['body']) && isset($_GET['id'])) {
+    # Just in from POST => save to database
+    $body = $_POST['body'];
+    $playerId = $_GET['id'];
+    $userId = $_COOKIE['userId'];
+    $stmt = $db->prepare('INSERT INTO comments (playerId, userId, body) VALUES (?, ?, ?)');
+    $stmt->bindValue(1, $playerId, SQLITE3_TEXT);
+    $stmt->bindValue(2, $userId, SQLITE3_TEXT);
+    $stmt->bindValue(3, $body, SQLITE3_TEXT);
+    $stmt->execute();
+    header("Location: list_players.php");
+}`      
 
 # Parte 2 - XSS
 En vistas de los problemas de seguridad que habéis encontrado, empezáis a sospechar que esta aplicación quizás es vulnerable a XSS (Cross Site Scripting).
@@ -75,26 +84,39 @@ a) Para ver si hay un problema de XSS, crearemos un comentario que muestre un al
 
 | Campos                                     |  Valores                                     | 
 |---------------------------------------------|------------------------------------------------------| 
-| Introduzo el mensaje                     |                                                   | 
-| En el formulario de la página                 |                                                   | 
+| Introduzo el mensaje                     |          <script>alert('comentario')</script>                                         | 
+| En el formulario de la página                 |          Lo he puesto en el apartado Show/add comments de el usuario Gloria Calleja, que se encuentra en la url /web/list_players.php                                         | 
 
-
+IMG03
 
 ## Apartado 2b
-b) Por qué dice "&" cuando miráis un link(como elque aparece a la portada de esta aplicación pidiendo que realices un donativo) con parámetros GETdentro de código html si en realidad el link es sólo con "&" ?
+b) Por qué dice "&" cuando miráis un link(como el que aparece a la portada de esta aplicación pidiendo que realices un donativo) con parámetros GET dentro de código html si en realidad el link es sólo con "&" ?
 
 | Campos                                     |  Valores                                     | 
 |---------------------------------------------|------------------------------------------------------| 
-| Explicación                     |                                                   | 
+| Explicación                     |   EL & es un carácter especial utilizado para iniciar una entidad de referencia de caracteres, también sirve para enlazar múltiples parámetros en una URL.  | 
 
 ## Apartado 2c
 c) Explicad cuál es el problema de show_comments.php, y cómo lo arreglaríais. Para resolver este apartado, podéis mirar el código fuente de esta página.
 
 | Campos                                     |  Valores                                     | 
 |---------------------------------------------|------------------------------------------------------| 
-| ¿Cúal es el problema?                     |                                                   | 
-| Sustityuo el código de la/las líneas...                 |                                                   | 
-| ... por el siguiente código...        |                                                     | 
+| ¿Cúal es el problema?                     |      Radica en la vulnerabilidad a ataques de inyección SQL debido al uso inseguro de datos provenientes de la entrada del usuario ($_GET['id']) directamente en una consulta SQL.                                           | 
+| Sustituyo el código de la/las líneas...                 |       ` $query = "SELECT commentId, username, body FROM comments C, users U WHERE C.playerId =".$_GET['id']." AND U.userId = C.userId order by C.playerId desc"; ` |
+                                          
+
+... por el siguiente código...        ` if (isset($_GET['id'])) {
+    $playerId = $_GET['id'];
+   $stmt = $db->prepare('SELECT commentId, username, body FROM comments C, users U WHERE C.playerId = ? AND U.userId = C.userId ORDER BY C.playerId DESC');
+    $stmt->bindValue(1, $playerId, SQLITE3_INTEGER);
+    $result = $stmt->execute();
+    while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
+        echo "<div>
+              <h4>" . htmlspecialchars($row['username']) . "</h4>
+              <p>commented: " . htmlspecialchars($row['body']) . "</p>
+              </div>";
+    }
+} `                 
 
 
 ## Apartado 2d
