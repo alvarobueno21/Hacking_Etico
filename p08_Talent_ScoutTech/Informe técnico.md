@@ -45,23 +45,25 @@ c) Si vais a private/auth.php, veréis que en la función areUserAndPasswordVali
 
 | Campos                                     |  Valores                                     | 
 |---------------------------------------------|------------------------------------------------------| 
-| Explicación del ataque                     |  Es vulnerable porque, a pesar de escapar caracteres, la consulta se construye por concatenación directa de cadenas, lo que puede ser explotado en ciertas condiciones.                                             | 
-| Solución: Cambiar la línea de código con que el ataque ha tenido éxito                 |                                                   | 
-| Campo de contraseña con que el ataque ha tenido éxito        |                                                     | 
-
+| Explicación del error ...                     | La consulta se construye por concatenación directa de cadenas, lo que puede ser explotado en ciertas condiciones.                                             | 
+| Solución: Cambiar la línea con el código                |    `$username = SQLite3::escapeString($_POST['username']); $password = SQLite3::escapeString($_POST['password']); $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'"; $result = $db->query($sql); ` | 
+| ...por la siguiente línea...        |   `$stmt = $db->prepare('SELECT * FROM users WHERE username = ? AND password = ?'); $stmt->bindValue(1, $_POST['username'], SQLITE3_TEXT); $stmt->bindValue(2, $_POST['password'], SQLITE3_TEXT); $result = $stmt->execute(); `     | 
 
 ## Apartado 1d
-d) Si habéis tenido éxito con el apartado b), os habéis autenticado utilizando elusuario “luis” (si no habéis tenido éxito, podéis utilizar la contraseña “1234” para realizar este apartado). Con el objetivo de mejorar la imagen de la jugadora “Candela Pacheco”, le queremos escribir un buen puñado de comentarios positivos, pero no los queremos hacer todos con la misma cuenta de usuario.
+d) Si habéis tenido éxito con el apartado b), os habéis autenticado utilizando el usuario “luis” (si no habéis tenido éxito, podéis utilizar la contraseña “1234” para realizar este apartado). Con el objetivo de mejorar la imagen de la jugadora “Candela Pacheco”, le queremos escribir un buen puñado de comentarios positivos, pero no los queremos hacer todos con la misma cuenta de usuario.
 
-Para hacer esto, en primer lugar habéis hecho un ataque de fuerza bruta sobre eldirectorio del servidor web (por ejemplo, probando nombres de archivo) y habéis encontrado el archivo “add_comment.php~”. Estos archivos seguramente se han creado como copia de seguridad al modificar el archivo “.php” original directamente al servidor. En general, los servidores web no interpretan (ejecuten) los archivos “.php~” sino que los muestran como archivos de texto sin interpretar.
+Para hacer esto, en primer lugar habéis hecho un ataque de fuerza bruta sobre el directorio del servidor web (por ejemplo, probando nombres de archivo) y habéis encontrado el archivo “add_comment.php~”. Estos archivos seguramente se han creado como copia de seguridad al modificar el archivo “.php” original directamente al servidor. En general, los servidores web no interpretan (ejecuten) los archivos “.php~” sino que los muestran como archivos de texto sin interpretar.
 
 Esto os permite estudiar el código fuente de “add_comment.php” y encontrar una vulnerabilidad para publicar mensajes en nombre de otros usuarios. ¿Cuál es esta vulnerabilidad, y cómo es el ataque que utilizáis para explotarla?
 
 | Campos                                     |  Valores                                     | 
 |---------------------------------------------|------------------------------------------------------| 
-| Vulnerabilidad detectada                     |                                                   | 
-| Descripción del ataque                 |                                                   | 
-| ¿Cómo podemos hacer que sea segura esta entrada?        |                                                     | 
+| Vulnerabilidad detectada                     |   `$body = $_POST['body']; $body = SQLite3::escapeString($body); $query = "INSERT INTO comments (playerId, userId, body) VALUES ('".$_GET['id']."', '".$_COOKIE['userId']."', '$body')"; `
+                                               | 
+| Descripción del ataque                 |   El problema radica en la forma en que los datos son insertados directamente en la consulta SQL sin un manejo adecuado de los mismos para prevenir manipulaciones maliciosas                                             | 
+| ¿Cómo podemos hacer que sea segura esta entrada?        |  `if (isset($_POST['body']) && isset($_GET['id'])) {     # Just in from POST => save to database
+    $body = $_POST['body'];     $playerId = $_GET['id'];     $userId = $_COOKIE['userId'];   $stmt = $db->prepare('INSERT INTO comments (playerId, userId, body) VALUES (?, ?, ?)');     $stmt->bindValue(1, $playerId, SQLITE3_TEXT);     $stmt->bindValue(2, $userId, SQLITE3_TEXT);     $stmt->bindValue(3, $body, SQLITE3_TEXT);
+    $stmt->execute();     header("Location: list_players.php"); } `       | 
 
 
 
