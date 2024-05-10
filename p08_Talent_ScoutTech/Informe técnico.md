@@ -15,7 +15,7 @@ a) Dad un ejemplo de combinación de usuario y contraseña que provoque un error
 | Campos del formulario web utilizados en la consulta SQL       |      username                                               | 
 | Campos del formulario web no utilizados en la consulta SQL    |           userId, password                                           | 
 
-img01
+![img01](img/img01.png)
 
 ## Apartado 1b
 b) Gracias a la SQL Injection del apartado anterior, sabemos que este formulario es vulnerable y conocemos el nombre de los campos de la tabla “users”. Para tratar de impersonar a un usuario, nos hemos descargado un diccionario que contiene algunas de las contraseñas más utilizadas (se listan a continuación):
@@ -30,7 +30,7 @@ dragon
 
 Para este apartado usaré un kali linux con el programa hydra donde pondré un fichero que hará de diccionario para los usuarios más utilizados y otro fichero con contraseñas donde incluiremos las contraseñas de arriba, también como parametros pondremos la ip y la dirección donde queremos hacer fuerza bruta al login y se pondrá también el mensaje de error que nos da la página si entramos con un usuario o contraseña erroneos, una vez hecho esto sacaremos el usuario que se llama luis y la contraseña que es 1234, como podemos ver aquí abajo:
 
-img02
+![img02](img/img02.png)
 
 | Campos                                     |  Valores                                     | 
 |---------------------------------------------|------------------------------------------------------| 
@@ -87,7 +87,7 @@ a) Para ver si hay un problema de XSS, crearemos un comentario que muestre un al
 | Introduzo el mensaje                     |          <script>alert('comentario')</script>                                         | 
 | En el formulario de la página                 |          Lo he puesto en el apartado Show/add comments de el usuario Gloria Calleja, que se encuentra en la url /web/list_players.php                                         | 
 
-IMG03
+![img03](img/img03.png)
 
 ## Apartado 2b
 b) Por qué dice "&" cuando miráis un link(como el que aparece a la portada de esta aplicación pidiendo que realices un donativo) con parámetros GET dentro de código html si en realidad el link es sólo con "&" ?
@@ -127,7 +127,7 @@ d) Descubrid si hay alguna otra página que esté afectada por esta misma vulner
 | Otras páginas afectadas                     |      list_players.php y add_comment.php                                         | 
 | ¿Como lo he descubierto                 |   Porque si me voy al código fuente de la página podremos ver que en el apartad de div hay dos páginas enlazadas que tendrán también esta vulneralibidad porque recogen datos de esta página.                                                | 
 
-IMG04
+![img04](img/img04.png)
 
 # Parte 3 - Control de acceso, autenticación y sesiones de usuarios
 
@@ -142,7 +142,6 @@ Nunca debes almacenar contraseñas en texto plano. Utiliza una función de hashi
 
 ## 3. Validación de Entrada del Usuario
 Asegúrate de validar las entradas del usuario para evitar entradas maliciosas. Por ejemplo, puedes verificar la longitud de los nombres de usuario y contraseñas y asegurarte de que solo contengan caracteres permitidos.
-
 
 ## 4. Medidas Contra Ataques de Fuerza Bruta
 Implementa medidas como CAPTCHAs, límites de intentos de inicio de sesión y bloqueos temporales después de múltiples intentos fallidos para proteger contra ataques de fuerza bruta.
@@ -236,7 +235,7 @@ a) Editad un jugador para conseguir que, en el listado de jugadores (list_player
 | En el campo...                     |     Team name                                              | 
 | Introduzco...                 |     `<body>  <a href="http://web.pagos/donate.php?amount=100&receiver=attacker" class="boton">Profile</a> </body> `   | 
 
-IMG06
+![img](img/img06)
 
 ## Apartado 5b
 b) Una vez lo tenéis terminado, pensáis que la eficacia de este ataque aumentaría si no necesitara que elusuario pulse un botón.Con este objetivo, cread un comentario que sirva vuestros propósitos sin levantar ninguna sospecha entre los usuarios que consulten los comentarios sobre un jugador (show_comments.php).
