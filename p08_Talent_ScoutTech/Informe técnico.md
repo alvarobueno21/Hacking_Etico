@@ -32,6 +32,12 @@ Para este apartado usaré un kali linux con el programa hydra donde pondré un f
 
 img02
 
+| Campos                                     |  Valores                                     | 
+|---------------------------------------------|------------------------------------------------------| 
+| Explicación del ataque                     |  Consiste en usar el programa hydra poniendo dos diccionarios, uno de usuarios con los usuarios más utilizados y el otro diccionario que hemos generado para las contraseñas con las que nos dieron anteriormente, y lo lanzamos a la ruta donde queremos hacer fuerza bruta al login.                                             | 
+| Campo de usuario con que el ataque ha tenido éxito                 |     luis                                              | 
+| Campo de contraseña con que el ataque ha tenido éxito        |           1234                                          | 
+
 
 ## Apartado 1c
 c) Si vais a private/auth.php, veréis que en la función areUserAndPasswordValid”, se utiliza “SQLite3::escapeString()”, pero, aun así, el formulario es vulnerable a SQL Injections, explicad cuál es el error de programación de esta función y como lo podéis corregir.
@@ -39,8 +45,8 @@ c) Si vais a private/auth.php, veréis que en la función areUserAndPasswordVali
 
 | Campos                                     |  Valores                                     | 
 |---------------------------------------------|------------------------------------------------------| 
-| Explicación del ataque                     |                                                   | 
-| Campo de usuario con que el ataque ha tenido éxito                 |                                                   | 
+| Explicación del ataque                     |  Es vulnerable porque, a pesar de escapar caracteres, la consulta se construye por concatenación directa de cadenas, lo que puede ser explotado en ciertas condiciones.                                             | 
+| Solución: Cambiar la línea de código con que el ataque ha tenido éxito                 |                                                   | 
 | Campo de contraseña con que el ataque ha tenido éxito        |                                                     | 
 
 
