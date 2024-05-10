@@ -150,23 +150,79 @@ Implementa medidas como CAPTCHAs, límites de intentos de inicio de sesión y bl
 ## 5. Uso de HTTPS
 Asegúrate de que tu sitio esté configurado para usar HTTPS, protegiendo así la privacidad y seguridad de las comunicaciones entre el navegador del usuario y tu servidor web.
 
-
-
 ## Apartado 3b
 b) En el apartado de login de la aplicación, también deberíamos implantar una serie de medidas para que sea seguro el acceso, (sin contar la del ejercicio 1.c). Como en el ejercicio anterior, justifica esas medidas e implementa las que sean factibles y necesarias (ten en cuenta las acciones realizadas en el register). Puedes mirar en la carpeta private
+
+### Uso de Cookies para Almacenar Contraseñas: 
+Almacenar contraseñas directamente en cookies es altamente inseguro porque las cookies pueden ser interceptadas fácilmente mediante ataques de tipo man-in-the-middle o XSS.
+
+Solución: No almacenar contraseñas en cookies. En su lugar, utiliza sesiones para manejar el estado de autenticación. Las sesiones son almacenadas del lado del servidor, y solo un ID de sesión es mantenido en el cliente, lo cual es más seguro.
+
+### Verificación Insegura de Contraseñas: 
+El script está comparando contraseñas en texto plano, lo cual no es seguro, especialmente si las contraseñas están almacenadas en hash en la base de datos (como deberían estarlo).
+
+Solución: Usar password_verify() para comparar las contraseñas hasheadas almacenadas en la base de datos con la contraseña proporcionada por el usuario.
+
+### Inyección SQL: 
+Aunque se está usando SQLite3::escapeString() para escapar la entrada del usuario, esta función no garantiza seguridad completa contra inyecciones SQL.
+
+Solución: Utilizar sentencias preparadas para evitar inyección SQL completamente.
 
 ## Apartado 3c
 c) Volvemos a la página de register.php, vemos que está accesible para cualquier usuario, registrado o sin registrar. Al ser una aplicación en la cual no debería dejar a los usuarios registrarse, qué medidas podríamos tomar para poder gestionarlo e implementa las medidas que sean factibles en este proyecto.
 
+### 1. Requerir Autenticación de Usuarios
+Dado que el registro de nuevos usuarios es una tarea administrativa, puedes asegurarte de que solo los usuarios autenticados con roles específicos puedan acceder a esta página.
+
+**Implementación:**
+Utiliza un sistema de control de acceso basado en roles (RBAC).
+Descomenta y/o implementa la funcionalidad en auth.php para verificar si el usuario está autenticado y tiene los permisos necesarios para registrar nuevos usuarios.
+
+### 2. Ocultar o Deshabilitar el Formulario de Registro
+Si no se debe permitir el registro desde la interfaz del usuario, puedes simplemente no mostrar el formulario a usuarios no autorizados o incluso eliminar el formulario por completo de la interfaz de usuario, dependiendo de las políticas de la aplicación.
+
+**Implementación:**
+Verifica el rol del usuario antes de mostrar el formulario de registro.
+
+### 3. Uso de una Clave o Token de Registro
+Para casos en los que el registro deba ser controlado pero permitido bajo ciertas circunstancias, podrías implementar un sistema que requiera una clave de registro o token que sólo los administradores puedan generar.
+
+**Implementación:**
+Agrega un campo adicional en el formulario de registro para un "token de registro".
+Verifica este token contra una lista de tokens válidos en el servidor antes de permitir el registro.
+
 ## Apartado 3d
 d) Al comienzo de la práctica hemos supuesto que la carpeta private no tenemos acceso, pero realmente al configurar el sistema en nuestro equipo de forma local. ¿Se cumple esta condición? ¿Qué medidas podemos tomar para que esto no suceda?
+
+**Permisos de archivo:** Asegúrate de que los permisos de archivo y de directorio estén configurados correctamente para la carpeta "private". Esto implica limitar el acceso solo a usuarios autorizados y restringir el acceso de lectura, escritura y ejecución según sea necesario.
+
+**Autenticación y autorización:** Implementa algún sistema de autenticación y autorización para controlar quién puede acceder a la carpeta "private". Esto puede incluir la autenticación mediante contraseñas, tokens de acceso u otros métodos de autenticación seguros.
+
+**Firewall:** Configura un firewall en tu sistema para bloquear el acceso no autorizado a la carpeta "private" desde redes externas o no confiables. Esto puede ayudar a prevenir ataques externos.
+
+**Encriptación:** Considera encriptar la carpeta "private" para proteger su contenido en caso de que alguien logre acceder a ella de manera no autorizada. La encriptación garantiza que incluso si un intruso accede a los archivos, no podrá leer su contenido sin la clave de encriptación adecuada.
 
 ## Apartado 3e
 e) Por último, comprobando el flujo de la sesión del usuario. Analiza si está bien asegurada la sesión del usuario y que no podemos suplantar a ningún usuario. Si no está bien asegurada, qué acciones podríamos realizar e implementarlas.
 
+**Configuración del servidor web:** Configura el servidor web (como Apache, Nginx, etc.) para que restrinja el acceso a la carpeta "private". Puedes hacer esto mediante la configuración de acceso del servidor web, como el archivo .htaccess en Apache, para negar el acceso directo a la carpeta desde el navegador.
+
+**Autenticación y autorización:** Implementa autenticación y autorización en el servidor web para controlar quién puede acceder a la carpeta "private". Puedes configurar autenticación básica HTTP o autenticación basada en formularios para solicitar credenciales de inicio de sesión antes de permitir el acceso a la carpeta.
+
+**Firewall y filtrado de direcciones IP:** Utiliza un firewall para bloquear el acceso directo a la carpeta "private" desde direcciones IP externas o no autor
+
 # Parte 4 - Servidores web
 ¿Qué medidas de seguridad se implementariaís en el servidor web para reducir el riesgo a ataques?
 
+**Detección y prevención de intrusiones (IDS/IPS):** Implementa sistemas de detección y prevención de intrusiones para monitorear y analizar el tráfico de red en busca de actividades sospechosas o intentos de ataques. Estos sistemas pueden ayudar a identificar y bloquear ataques en tiempo real.
+
+**Limitación de acceso:** Limita el acceso al servidor web solo a usuarios autorizados y, si es posible, utiliza una red privada o VPN para acceder al servidor de forma remota. Además, considera el uso de autenticación de dos factores para agregar una capa adicional de seguridad a las cuentas de usuario.
+
+**Encriptación:** Utiliza protocolos de encriptación, como HTTPS, para proteger las comunicaciones entre el servidor web y los clientes. Esto es especialmente importante cuando se transmiten datos sensibles, como información de inicio de sesión o detalles de tarjetas de crédito.
+
+**Auditoría de seguridad:** Implementa registros de auditoría para registrar y monitorear las actividades en el servidor web. Esto puede ayudar a detectar intrusiones o intentos de acceso no autorizados y proporcionar información para investigaciones posteriores.
+
+**Respaldo de datos regular:** Realiza copias de seguridad regulares de los datos del servidor web y almacénalos de forma segura fuera del sitio. En caso de un ataque o una pérdida de datos, contar con copias de seguridad actualizadas puede ayudar a restaurar el funcionamiento del servidor rápidamente.
 
 # Parte 5 - CSRF
 Ahora ya sabemos que podemos realizar un ataque XSS. Hemos preparado el siguiente enlace: http://web.pagos/donate.php?amount=100&receiver=attacker, mediante el cual, cualquiera que haga click hará una donación de 100€ al nuestro usuario (con nombre 'attacker') de la famosa plataforma de pagos online 'web.pagos' (Nota: como en realidad esta es una dirección inventada, vuestro navegador os devolverá un error 404).
