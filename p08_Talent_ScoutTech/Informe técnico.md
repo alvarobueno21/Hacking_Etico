@@ -58,9 +58,9 @@ Esto os permite estudiar el código fuente de “add_comment.php” y encontrar 
 
 | Campos                                     |  Valores                                     | 
 |---------------------------------------------|------------------------------------------------------| 
-| Vulnerabilidad detectada                     |   `$body = $_POST['body']; $body = SQLite3::escapeString($body); $query = "INSERT INTO comments (playerId, userId, body) VALUES ('".$_GET['id']."', '".$_COOKIE['userId']."', '$body')"; `
-                                               | 
-| Descripción del ataque                 |   El problema radica en la forma en que los datos son insertados directamente en la consulta SQL sin un manejo adecuado de los mismos para prevenir manipulaciones maliciosas                                             | 
+| Vulnerabilidad detectada                     |   `$body = $_POST['body']; $body = SQLite3::escapeString($body); $query = "INSERT INTO comments (playerId, userId, body) VALUES ('".$_GET['id']."', '".$_COOKIE['userId']."', '$body')"; `  | 
+| Descripción del ataque                 |   El problema radica en la forma en que los datos son insertados directamente en la consulta SQL sin un manejo adecuado de los mismos para prevenir manipulaciones maliciosas                    | 
+
 
 ¿Cómo podemos hacer que sea segura esta entrada?        
 ` if (isset($_POST['body']) && isset($_GET['id'])) {
@@ -235,7 +235,7 @@ a) Editad un jugador para conseguir que, en el listado de jugadores (list_player
 | En el campo...                     |     Team name                                              | 
 | Introduzco...                 |     `<body>  <a href="http://web.pagos/donate.php?amount=100&receiver=attacker" class="boton">Profile</a> </body> `   | 
 
-![img](img/img06)
+![img](img/img06.png)
 
 ## Apartado 5b
 b) Una vez lo tenéis terminado, pensáis que la eficacia de este ataque aumentaría si no necesitara que elusuario pulse un botón.Con este objetivo, cread un comentario que sirva vuestros propósitos sin levantar ninguna sospecha entre los usuarios que consulten los comentarios sobre un jugador (show_comments.php).
