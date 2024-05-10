@@ -37,6 +37,13 @@ img02
 c) Si vais a private/auth.php, veréis que en la función areUserAndPasswordValid”, se utiliza “SQLite3::escapeString()”, pero, aun así, el formulario es vulnerable a SQL Injections, explicad cuál es el error de programación de esta función y como lo podéis corregir.
 
 
+| Campos                                     |  Valores                                     | 
+|---------------------------------------------|------------------------------------------------------| 
+| Explicación del ataque                     |                                                   | 
+| Campo de usuario con que el ataque ha tenido éxito                 |                                                   | 
+| Campo de contraseña con que el ataque ha tenido éxito        |                                                     | 
+
+
 ## Apartado 1d
 d) Si habéis tenido éxito con el apartado b), os habéis autenticado utilizando elusuario “luis” (si no habéis tenido éxito, podéis utilizar la contraseña “1234” para realizar este apartado). Con el objetivo de mejorar la imagen de la jugadora “Candela Pacheco”, le queremos escribir un buen puñado de comentarios positivos, pero no los queremos hacer todos con la misma cuenta de usuario.
 
@@ -44,23 +51,51 @@ Para hacer esto, en primer lugar habéis hecho un ataque de fuerza bruta sobre e
 
 Esto os permite estudiar el código fuente de “add_comment.php” y encontrar una vulnerabilidad para publicar mensajes en nombre de otros usuarios. ¿Cuál es esta vulnerabilidad, y cómo es el ataque que utilizáis para explotarla?
 
+| Campos                                     |  Valores                                     | 
+|---------------------------------------------|------------------------------------------------------| 
+| Vulnerabilidad detectada                     |                                                   | 
+| Descripción del ataque                 |                                                   | 
+| ¿Cómo podemos hacer que sea segura esta entrada?        |                                                     | 
+
+
+
 # Parte 2 - XSS
 En vistas de los problemas de seguridad que habéis encontrado, empezáis a sospechar que esta aplicación quizás es vulnerable a XSS (Cross Site Scripting).
 
 ## Apartado 2a
 a) Para ver si hay un problema de XSS, crearemos un comentario que muestre un alert de Javascript siempre que alguien consulte el/los comentarios de aquel jugador (show_comments.php). Dad un mensaje que genere un «alert»de Javascript al consultar el listado de mensajes.
 
+| Campos                                     |  Valores                                     | 
+|---------------------------------------------|------------------------------------------------------| 
+| Introduzo el mensaje                     |                                                   | 
+| En el formulario de la página                 |                                                   | 
+
+
 
 ## Apartado 2b
 b) Por qué dice "&" cuando miráis un link(como elque aparece a la portada de esta aplicación pidiendo que realices un donativo) con parámetros GETdentro de código html si en realidad el link es sólo con "&" ?
 
+| Campos                                     |  Valores                                     | 
+|---------------------------------------------|------------------------------------------------------| 
+| Explicación                     |                                                   | 
 
 ## Apartado 2c
 c) Explicad cuál es el problema de show_comments.php, y cómo lo arreglaríais. Para resolver este apartado, podéis mirar el código fuente de esta página.
 
+| Campos                                     |  Valores                                     | 
+|---------------------------------------------|------------------------------------------------------| 
+| ¿Cúal es el problema?                     |                                                   | 
+| Sustityuo el código de la/las líneas...                 |                                                   | 
+| ... por el siguiente código...        |                                                     | 
+
 
 ## Apartado 2d
 d) Descubrid si hay alguna otra página que esté afectada por esta misma vulnerabilidad. En caso positivo, explicad cómo lo habéis descubierto.
+
+| Campos                                     |  Valores                                     | 
+|---------------------------------------------|------------------------------------------------------| 
+| Otras páginas afectas                     |                                                   | 
+| ¿Como lo he descubierto                 |                                                   | 
 
 
 # Parte 3 - Control de acceso, autenticación y sesiones de usuarios
@@ -91,6 +126,11 @@ Ahora ya sabemos que podemos realizar un ataque XSS. Hemos preparado el siguient
 
 a) Editad un jugador para conseguir que, en el listado de jugadores (list_players.php) aparezca, debajo del nombre de su equipo y antes de “(show/add comments)” un botón llamado “Profile” que corresponda a un formulario que envíe a cualquiera que haga clic sobre este botón a esta dirección que hemos preparado.
 
+| Campos                                     |  Valores                                     | 
+|---------------------------------------------|------------------------------------------------------| 
+| En el campo...                     |                                                   | 
+| Introduzco...                 |                                                   | 
+ 
 ## Apartado 5b
 b) Una vez lo tenéis terminado, pensáis que la eficacia de este ataque aumentaría si no necesitara que elusuario pulse un botón.Con este objetivo, cread un comentario que sirva vuestros propósitos sin levantar ninguna sospecha entre los usuarios que consulten los comentarios sobre un jugador (show_comments.php).
 
