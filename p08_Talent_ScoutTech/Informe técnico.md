@@ -9,12 +9,13 @@ a) Dad un ejemplo de combinación de usuario y contraseña que provoque un error
 
 | Campos                                     |  Valores                                     | 
 |---------------------------------------------|------------------------------------------------------| 
-| Escribo los valores...                      |                                                      | 
-| Del formulario de la página                 |                                                      | 
-| La consulta SQL que se ejecuta es...        |                                                      | 
-| Campos del formulario web utilizados en la consulta SQL       |                                                      | 
-| Campos del formulario web no utilizados en la consulta SQL    |                                                      | 
+| Escribo los valores...                      |       "c"                                               | 
+| Del formulario de la página                 |         web/insert_player.php                                             | 
+| La consulta SQL que se ejecuta es...        |          SELECT userId, password FROM users WHERE username = ""c""                                            | 
+| Campos del formulario web utilizados en la consulta SQL       |      username                                               | 
+| Campos del formulario web no utilizados en la consulta SQL    |           userId, password                                           | 
 
+img01
 
 ## Apartado 1b
 b) Gracias a la SQL Injection del apartado anterior, sabemos que este formulario es vulnerable y conocemos el nombre de los campos de la tabla “users”. Para tratar de impersonar a un usuario, nos hemos descargado un diccionario que contiene algunas de las contraseñas más utilizadas (se listan a continuación):
@@ -27,7 +28,9 @@ qwerty
 12345678
 dragon
 
-Dad un ataque que, utilizando este diccionario, nos permita impersonar un usuario de esta aplicación y acceder en nombre suyo. Tened en cuenta que no sabéis ni cuántos usuarios hay registrados en la aplicación, ni los nombres de estos.
+Para este apartado usaré un kali linux con el programa hydra donde pondré un fichero que hará de diccionario para los usuarios más utilizados y otro fichero con contraseñas donde incluiremos las contraseñas de arriba, también como parametros pondremos la ip y la dirección donde queremos hacer fuerza bruta al login y se pondrá también el mensaje de error que nos da la página si entramos con un usuario o contraseña erroneos, una vez hecho esto sacaremos el usuario que se llama luis y la contraseña que es 1234, como podemos ver aquí abajo:
+
+img02
 
 
 ## Apartado 1c
