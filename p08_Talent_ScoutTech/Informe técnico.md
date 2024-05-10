@@ -124,14 +124,33 @@ d) Descubrid si hay alguna otra página que esté afectada por esta misma vulner
 
 | Campos                                     |  Valores                                     | 
 |---------------------------------------------|------------------------------------------------------| 
-| Otras páginas afectas                     |                                                   | 
-| ¿Como lo he descubierto                 |                                                   | 
+| Otras páginas afectadas                     |      list_players.php y add_comment.php                                         | 
+| ¿Como lo he descubierto                 |   Porque si me voy al código fuente de la página podremos ver que en el apartad de div hay dos páginas enlazadas que tendrán también esta vulneralibidad porque recogen datos de esta página.                                                | 
 
+IMG04
 
 # Parte 3 - Control de acceso, autenticación y sesiones de usuarios
 
 ## Apartado 3a
 a) En el ejercicio 1, hemos visto cómo era inseguro el acceso de los usuarios a la aplicación. En la página de register.php tenemos el registro de usuario. ¿Qué medidas debemos implementar para evitar que el registro sea inseguro? Justifica esas medidas e implementa las medidas que sean factibles en este proyecto.
+
+## 1. Uso de Sentencias Preparadas para Evitar Inyecciones SQL
+Aunque usas SQLite3::escapeString() para escapar los inputs del usuario, este método no es completamente seguro contra todas las formas de inyección SQL. La mejor práctica es utilizar sentencias preparadas.
+
+## 2. Hashing de Contraseñas
+Nunca debes almacenar contraseñas en texto plano. Utiliza una función de hashing robusta como password_hash() para almacenar las contraseñas de forma segura.
+
+## 3. Validación de Entrada del Usuario
+Asegúrate de validar las entradas del usuario para evitar entradas maliciosas. Por ejemplo, puedes verificar la longitud de los nombres de usuario y contraseñas y asegurarte de que solo contengan caracteres permitidos.
+
+
+## 4. Medidas Contra Ataques de Fuerza Bruta
+Implementa medidas como CAPTCHAs, límites de intentos de inicio de sesión y bloqueos temporales después de múltiples intentos fallidos para proteger contra ataques de fuerza bruta.
+
+## 5. Uso de HTTPS
+Asegúrate de que tu sitio esté configurado para usar HTTPS, protegiendo así la privacidad y seguridad de las comunicaciones entre el navegador del usuario y tu servidor web.
+
+
 
 ## Apartado 3b
 b) En el apartado de login de la aplicación, también deberíamos implantar una serie de medidas para que sea seguro el acceso, (sin contar la del ejercicio 1.c). Como en el ejercicio anterior, justifica esas medidas e implementa las que sean factibles y necesarias (ten en cuenta las acciones realizadas en el register). Puedes mirar en la carpeta private
