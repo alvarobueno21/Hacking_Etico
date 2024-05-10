@@ -20,7 +20,6 @@
   - [Apartado 3e](#apartado-3e)
 
 - [Parte 4 - Servidores web](#parte-4---servidores-web)
-  - [Apartado 4](#apartado-4)
 
 - [Parte 5 - CSRF](#parte-5---csrf)
   - [Apartado 5a](#apartado-5a)
